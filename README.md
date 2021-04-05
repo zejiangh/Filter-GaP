@@ -15,8 +15,8 @@ This repository contains Dockerfile which extends the PyTorch NGC container and 
 
 ### Download the dataset
 
-1. The script operates on ImageNet-1K, a widely popular image classification dataset from the ILSVRC challenge. 
-2. [Download the images](http://image-net.org/download-images).
+* The script operates on ImageNet-1K, a widely popular image classification dataset from the ILSVRC challenge. 
+* [Download the images](http://image-net.org/download-images).
 
 ### Training
 
