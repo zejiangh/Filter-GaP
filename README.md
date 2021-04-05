@@ -4,6 +4,13 @@ This repository is an official PyTorch implementation of the paper "Filter Explo
 
 ## Dependency
 
+This repository contains Dockerfile which extends the PyTorch NGC container and encapsulates some dependencies. In addition, out code runs with the following components:
+
+* [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker)
+* [PyTorch 20.12-py3 NGC container](https://ngc.nvidia.com/registry/nvidia-pytorch) or newer
+* Supported GPUs:
+    * [NVIDIA Volta architecture](https://www.nvidia.com/en-us/data-center/volta-gpu-architecture/)
+
 ## ImageNet Classification
 
 #### Download the dataset
