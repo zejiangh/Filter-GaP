@@ -1427,9 +1427,9 @@ def train_loop(
     if args.grow_prune:
         # filter-wise
         if args.EMA:
-            cfg_mask, prev_model = init_channel_mask(model_and_loss.model, channel_sparsity-init_channel_ratio)
-        else:
             cfg_mask, _ = init_channel_mask(model_and_loss.model, channel_sparsity-init_channel_ratio) # regrow EMA weight
+        else:
+            cfg_mask, prev_model = init_channel_mask(model_and_loss.model, channel_sparsity-init_channel_ratio)
         apply_channel_mask(model_and_loss.model, cfg_mask)
         # #weight-wise
         # prune_init(args, model_and_loss.model)
