@@ -32,17 +32,20 @@ wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/
 
 ### Evaluation
 * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation.
-
+* Start inference
 ```Shell
-python ./multiproc.py --nproc_per_node 8 ./main.py /data/imagenet --data-backend pytorch --raport-file raport.json -j8 -p 100 --lr 1.024 --optimizer-batch-size 1024 --warmup 8 --arch resnet50 -c fanin --label-smoothing 0.1 --lr-schedule cosine --mom 0.875 --wd 3.0517578125e-05 -b 128 --amp --static-loss-scale 128 --mixup 0. --grow_prune --delta_T 2 --T_max 0.72 --init_channel_ratio 0.2 --channel_sparsity 0.5 --sampling
+python ./main.py --data-backend pytorch --arch resnet50 --evaluate --pruned_model ./logs/resnet50_2g_0.774.pth.tar -b 128 /data/imagenet
 ```
+* FLOPs checking
+```Shell
+python check_flops.py --checkpoint_path ./logs/resnet50_2g_0.774.pth.tar
 
 ### Testing
 
 ```Shell
 python ./main.py --data-backend pytorch --arch resnet50 --evaluate --pretrained-weights ./logs/model_best.pth.tar -b 128 /data/imagenet
 
-python ./main.py --data-backend pytorch --arch resnet50 --evaluate --pruned_model ./logs/resnet50_2g_0.774.pth.tar -b 128 /data/imagenet
+
 
 python ./main.py --data-backend pytorch --arch resnet50 --evaluate --pruned_model ./logs/hard_pruned_model.pth.tar -b 128 /data/imagenet
 ```
