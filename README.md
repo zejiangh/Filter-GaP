@@ -48,12 +48,11 @@ nvidia-docker run --rm -it -v <path to imagenet>:/imagenet --ipc=host nvidia_res
 
 <table>
   <tr>
-    <th>arch</th>
-    <th>params</th>
-    <th>linear</th>
-    <th>k-nn</th>
-    <th colspan="1">download</th>
-    <th colspan="3">logs</th>
+    <th>Model</th>
+    <th>FLOPs</th>
+    <th>FLOPs reduction</th>
+    <th>Top-1</th>
+    <th colspan="1">Download</th>
   </tr>
   <tr>
     <td>ResNet-50</td>
