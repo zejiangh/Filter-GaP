@@ -45,6 +45,7 @@ nvidia-docker run --rm -it -v <path to imagenet>:/imagenet --ipc=host nvidia_res
 ```
 
 ### Checkpoints
+
 <table>
   <tr>
     <th>arch</th>
