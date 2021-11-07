@@ -1,6 +1,9 @@
-# Channel-Level CNN Model Compression via Filter Exploration
+# FilterExpo: CNN Model Compression via Filter Exploration
 
-This repository is an official PyTorch implementation of the paper "Channel-Level CNN Model Compression via Filter Exploration".
+This repository is the official implementation of the paper "FilterExpo: CNN Model Compression via Filter Exploration".
+
+## Highlights
+
 
 ## Dependency
 
