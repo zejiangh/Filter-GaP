@@ -55,14 +55,11 @@ nvidia-docker run --rm -it -v <path to imagenet>:/imagenet --ipc=host nvidia_res
     <th colspan="1">Download</th>
   </tr>
   <tr>
-    <td>ResNet-50</td>
-    <td>23M</td>
-    <td>75.7%</td>
-    <td>71.3%</td>
-    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/resnet/resnet50/bl_lr0.0005_gpu16_bs64_multicrop_epoch300_dino_aug/resume_from_ckpt0200/checkpoint.pth">full ckpt</a></td>
-    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/resnet/resnet50/bl_lr0.0005_gpu16_bs64_multicrop_epoch300_dino_aug/resume_from_ckpt0200/log.txt">train</a></td>
-    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/resnet/resnet50/bl_lr0.0005_gpu16_bs64_multicrop_epoch300_dino_aug/resume_from_ckpt0200/lincls/epoch_last/lr0.01/log.txt">linear</a></td> 
-    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/resnet/resnet50/bl_lr0.0005_gpu16_bs64_multicrop_epoch300_dino_aug/resume_from_ckpt0200/features/epoch0300/log.txt">knn</a></td>    
+    <td rowspan="3">ResNet-50</td>
+    <td>3G</td>
+    <td>27%</td>
+    <td>77.9%</td>
+    <td><a href="">resnet50_3gflops_77.9top1 ckpt</a></td>   
   </tr>  
 </table>
 
