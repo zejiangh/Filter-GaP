@@ -31,13 +31,14 @@ tar -xvf ILSVRC2012_img_train.tar && rm -f ILSVRC2012_img_train.tar
 find . -name "*.tar" | while read NAME ; do mkdir -p "${NAME%.tar}"; tar -xvf "${NAME}" -C "${NAME%.tar}"; rm -f "${NAME}"; done
 cd ..
 ```
+
 * Extract the validation data and move the images to subfolders
 ```Shell
 mkdir val && mv ILSVRC2012_img_val.tar val/ && cd val && tar -xvf ILSVRC2012_img_val.tar
 wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/valprep.sh | bash
 ```
 
-* Docker related setup
+* Docker setup
 ```Shell
 docker build . -t nvidia_resnet50
 nvidia-docker run --rm -it -v <path to imagenet>:/imagenet --ipc=host nvidia_resnet50
