@@ -62,7 +62,7 @@ nvidia-docker run --rm -it -v <path to imagenet>:/imagenet --ipc=host nvidia_res
     <td><a href="">resnet34_2gflops_73.5top1 ckpt</a></td>   
   </tr>
   <tr>
-    <td rowspan="3">ResNet-50</td>
+    <td rowspan="4">ResNet-50</td>
     <td>3G</td>
     <td>27%</td>
     <td>77.9%</td>
@@ -79,6 +79,25 @@ nvidia-docker run --rm -it -v <path to imagenet>:/imagenet --ipc=host nvidia_res
     <td>75%</td>
     <td>76%</td>
     <td><a href="">resnet50_1gflops_76top1 ckpt</a></td>   
+  </tr> 
+  <tr>
+    <td>0.8G</td>
+    <td>80%</td>
+    <td>74.4%</td>
+    <td><a href="">resnet50_0.8gflops_74.4top1 ckpt</a></td>   
+  </tr> 
+  <tr>
+    <td rowspan="2">ResNet-101</td>
+    <td>3.4G</td>
+    <td>55%</td>
+    <td>78.8%</td>
+    <td><a href="">resnet101_3.4gflops_78.8top1 ckpt</a></td>   
+  </tr> 
+  <tr>
+    <td>1.9G</td>
+    <td>75%</td>
+    <td>77.6%</td>
+    <td><a href="">resnet101_1.9gflops_77.6top1 ckpt</a></td>   
   </tr> 
 </table>
 
