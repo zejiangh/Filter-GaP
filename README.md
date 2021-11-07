@@ -57,10 +57,16 @@ nvidia-docker run --rm -it -v <path to imagenet>:/imagenet --ipc=host nvidia_res
   <tr>
     <td rowspan="3">ResNet-50</td>
     <td>3G</td>
-    <th>27%</th>
+    <td>27%</td>
     <td>77.9%</td>
     <td><a href="">resnet50_3gflops_77.9top1 ckpt</a></td>   
-  </tr>  
+  </tr>
+  <tr>
+    <td>3G</td>
+    <td>27%</td>
+    <td>77.9%</td>
+    <td><a href="">resnet50_3gflops_77.9top1 ckpt</a></td>   
+  </tr> 
 </table>
 
 ### Evaluation
