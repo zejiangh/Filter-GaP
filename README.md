@@ -3,7 +3,12 @@
 This repository is the official implementation of the paper "FilterExpo: CNN Model Compression via Filter Exploration".
 
 ## Highlights
+Filter-wise network pruning has been broadly recognizedas an effective technique to reduce the computation and mem-ory cost of deep convolutional neural networks.  However,conventional pruning methods require a fully pre-trainedlarge model, and remove filters in one-shot or iterative man-ners unidirectionally, which result to sub-optimal model qual-ity, large memory footprint and expensive training cost. Inthis paper, we propose a novel Filter Exploration methodol-ogy, dubbed as FilterExpo. It repeatedly prunes and regrowsthe filters throughout the training process, which reducesthe risk of pruning important filters prematurely. It also bal-ances the number of filters across all layers with a  sparsity1constraint. In addition, we convert the filter pruning problemto the well known column subset selection (CSS) problem,which produces better results than  previous heuristic prun-ing methods. All the exploration process is done in a singletraining from scratch without the need of a pre-trained largemodel.  Experimental results demonstrate that our methodcan effectively reduce the FLOPs of diverse CNN architec-tures on a variety of  computer vision tasks, including imageclassification, object detection, instance segmentation, and3D vision. For example, our compressed ResNet-50 modelon ImageNet dataset achieves 76% Top-1 accuracy with only25% FLOPs of the original ResNet-50 model, improvingprevious state-of-the-art filter pruning method by 0.7%.
+<img align="right" src="figs/pareto.png" width="12%">
 
+<div align="center">
+  <img width="90%" src="figs/diagram.png">
+</div>
 
 ## Dependency
 
