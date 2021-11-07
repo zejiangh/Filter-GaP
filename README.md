@@ -11,18 +11,18 @@ Filter-wise network pruning has been broadly recognized as an effective techniqu
 
 ## Dependency
 
-This repository contains Dockerfile which extends the PyTorch NGC container and encapsulates some dependencies. In addition, ensure you have the following components:
+<!-- This repository contains Dockerfile which extends the PyTorch NGC container and encapsulates some dependencies. In addition, ensure you have the following components: -->
 
-* [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker)
-* [PyTorch 20.12-py3 NGC container](https://ngc.nvidia.com/registry/nvidia-pytorch) or newer
-* Supported GPUs:
-    * [NVIDIA Volta architecture](https://www.nvidia.com/en-us/data-center/volta-gpu-architecture/)
+<!-- * [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker) -->
+<!-- * [PyTorch 20.12-py3 NGC container](https://ngc.nvidia.com/registry/nvidia-pytorch) or newer -->
+<!-- * Supported GPUs: -->
+<!--     * [NVIDIA Volta architecture](https://www.nvidia.com/en-us/data-center/volta-gpu-architecture/) -->
 
 ## ImageNet Classification
 
-### Download the dataset
+### Prepare the dataset
 
-* The script operates on ImageNet-1K, a widely popular image classification dataset from the ILSVRC challenge. 
+* We use ImageNet-1K, a widely used image classification dataset from the ILSVRC challenge. 
 * [Download the images](http://image-net.org/download-images).
 * Extract the training data
 ```Shell
