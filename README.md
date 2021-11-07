@@ -44,6 +44,56 @@ docker build . -t nvidia_resnet50
 nvidia-docker run --rm -it -v <path to imagenet>:/imagenet --ipc=host nvidia_resnet50
 ```
 
+### Checkpoints
+<table>
+  <tr>
+    <th>arch</th>
+    <th>params</th>
+    <th>linear</th>
+    <th>k-nn</th>
+    <th colspan="1">download</th>
+    <th colspan="3">logs</th>
+  </tr>
+  <tr>
+    <td>ResNet-50</td>
+    <td>23M</td>
+    <td>75.7%</td>
+    <td>71.3%</td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/resnet/resnet50/bl_lr0.0005_gpu16_bs64_multicrop_epoch300_dino_aug/resume_from_ckpt0200/checkpoint.pth">full ckpt</a></td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/resnet/resnet50/bl_lr0.0005_gpu16_bs64_multicrop_epoch300_dino_aug/resume_from_ckpt0200/log.txt">train</a></td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/resnet/resnet50/bl_lr0.0005_gpu16_bs64_multicrop_epoch300_dino_aug/resume_from_ckpt0200/lincls/epoch_last/lr0.01/log.txt">linear</a></td> 
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/resnet/resnet50/bl_lr0.0005_gpu16_bs64_multicrop_epoch300_dino_aug/resume_from_ckpt0200/features/epoch0300/log.txt">knn</a></td>    
+  </tr>  
+  <tr>
+    <td>EsViT (Swin-T, W=7)</td>
+    <td>28M</td>
+    <td>78.0%</td>
+    <td>75.7%</td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_tiny/bl_lr0.0005_gpu16_bs32_dense_multicrop_epoch300/checkpoint_best.pth">full ckpt</a></td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_tiny/bl_lr0.0005_gpu16_bs32_dense_multicrop_epoch300/log.txt">train</a></td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_tiny/bl_lr0.0005_gpu16_bs32_dense_multicrop_epoch300/lincls/epoch0300/log.txt">linear</a></td> 
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_tiny/bl_lr0.0005_gpu16_bs32_dense_multicrop_epoch300/features/epoch0280/log.txt">knn</a></td>    
+  </tr>
+  <tr>
+    <td>EsViT (Swin-S, W=7)</td>
+    <td>49M</td>
+    <td>79.5%</td>
+    <td>77.7%</td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_small/bl_lr0.0005_gpu16_bs32_dense_multicrop_epoch300/checkpoint_best.pth">full ckpt</a></td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_small/bl_lr0.0005_gpu16_bs32_dense_multicrop_epoch300/log.txt">train</a></td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_small/bl_lr0.0005_gpu16_bs32_dense_multicrop_epoch300/lincls/epoch0300/lr_0.003_n_last_blocks4/log.txt">linear</a></td> 
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_small/bl_lr0.0005_gpu16_bs32_dense_multicrop_epoch300/features/epoch0280/log.txt">knn</a></td>   
+  </tr>
+  <tr>
+    <td>EsViT (Swin-B, W=7)</td>
+    <td>87M</td>
+    <td>80.4%</td>
+    <td>78.9%</td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_base/bl_lr0.0005_gpu16_bs32_multicrop_epoch300_dino_aug/continued_from0200_dense/checkpoint_best.pth">full ckpt</a></td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_base/bl_lr0.0005_gpu16_bs32_multicrop_epoch300_dino_aug/continued_from0200_dense/log.txt">train</a></td>
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_base/bl_lr0.0005_gpu16_bs32_multicrop_epoch300_dino_aug/continued_from0200_dense/lincls/epoch0260/lr_0.001_n_last_blocks4/log.txt">linear</a></td> 
+    <td><a href="https://chunyleu.blob.core.windows.net/output/ckpts/esvit/swin/swin_base/bl_lr0.0005_gpu16_bs32_multicrop_epoch300_dino_aug/continued_from0200_dense/features/epoch0260/log.txt">knn</a></td> 
+
 ### Evaluation
 * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation.
 * Start inference
