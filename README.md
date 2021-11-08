@@ -45,6 +45,7 @@ nvidia-docker run --rm -it -v <path to imagenet>:/imagenet --ipc=host nvidia_res
 ```
 
 ### Checkpoints
+We provide the checkpoints of the compressed ResNet models on ImageNet. You can download and evaluate them directly.
 
 <table>
   <tr>
