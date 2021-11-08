@@ -41,7 +41,7 @@ wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/
 * Docker setup
 ```Shell
 docker build . -t nvidia_resnet50
-nvidia-docker run --rm -it -v <path to imagenet>:/imagenet --ipc=host nvidia_resnet50
+nvidia-docker run --rm -it -v <path to imagenet>:/data/imagenet --ipc=host nvidia_resnet50
 ```
 
 ### Checkpoints
