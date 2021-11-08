@@ -121,7 +121,7 @@ python check_flops.py --checkpoint_path ./logs/resnet50_2g_0.774.pth.tar
 ```
 
 ### Training
-Example of applying FilterExpo method to ResNet-50:
+Example of applying FilterExpo method to ResNet-50
 ```Shell
 python ./multiproc.py --nproc_per_node 8 ./main.py /data/imagenet --data-backend pytorch --raport-file raport.json -j8 -p 100 --lr 1.024 --optimizer-batch-size 1024 --warmup 8 --arch resnet50 -c fanin --label-smoothing 0.1 --lr-schedule cosine --mom 0.875 --wd 3.0517578125e-05 -b 128 --amp --static-loss-scale 128 --mixup 0. --grow_prune --delta_T 2 --T_max 0.72 --init_channel_ratio 0.2 --channel_sparsity 0.5 --sampling
 ```
