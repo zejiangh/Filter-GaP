@@ -263,7 +263,7 @@ We provide the checkpoints of the compressed Mask R-CNN models on COCO2014. You 
     <td>21.7</td>
     <td>39.0</td>
     <td>49.5</td>
-    <td><a href="https://drive.google.com/file/d/1Bow0Fqi8QhLY-ZspDMVCFKtqfdlQfO2q/view?usp=sharing">maskrcnn_37%flops_37.3apbox_34.5apmask ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1ga7WyD9poqItxE2m7SfVmgVYbJ3WQWOx/view?usp=sharing">maskrcnn_37%flops_37.3apbox_34.5apmask ckpt</a></td>   
   </tr>
   <tr>
     <td>segm</td>
@@ -273,7 +273,7 @@ We provide the checkpoints of the compressed Mask R-CNN models on COCO2014. You 
     <td>15.9</td>
     <td>36.1</td>
     <td>51.2</td>
-    <td><a href="https://drive.google.com/file/d/1Bow0Fqi8QhLY-ZspDMVCFKtqfdlQfO2q/view?usp=sharing">maskrcnn_37%flops_37.3apbox_34.5apmask ckpt</a></td> 
+    <td><a href="https://drive.google.com/file/d/1ga7WyD9poqItxE2m7SfVmgVYbJ3WQWOx/view?usp=sharing">maskrcnn_37%flops_37.3apbox_34.5apmask ckpt</a></td> 
   </tr> 
 </table>
 
