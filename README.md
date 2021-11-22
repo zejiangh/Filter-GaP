@@ -287,6 +287,7 @@ We provide the checkpoints of the compressed Mask R-CNN models on COCO2014. You 
 ### Evaluation
 <!-- * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation. -->
 * Start inference
+
 Copy checkpoint 'maskrcnn_50%flops_37.3apbox_34.5apmask.pth.tar' to '/workspace/object_detection/results/'
 ```Shell
 bash scripts/eval.sh
