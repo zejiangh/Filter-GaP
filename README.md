@@ -60,7 +60,7 @@ We provide the checkpoints of the compressed ResNet models on ImageNet. You can 
     <td>ResNet-18</td>
     <td>1.03G</td>
     <td>43%</td>
-    <td>69.4%</td>
+    <td>69.6%</td>
     <td><a href="https://drive.google.com/file/d/1FAXXPcXeqFN7ngyIM06590PT4VgHgrUe/view?usp=sharing">resnet18_1gflops_69.4top1 ckpt</a></td>   
   </tr>
   <tr>
@@ -74,7 +74,7 @@ We provide the checkpoints of the compressed ResNet models on ImageNet. You can 
     <td rowspan="4">ResNet-50</td>
     <td>3G</td>
     <td>27%</td>
-    <td>77.9%</td>
+    <td>78.0%</td>
     <td><a href="https://drive.google.com/file/d/1oL9U3cYzi8F_ARGuGWz1RxzjyAeD1Hl8/view?usp=sharing">resnet50_3gflops_77.9top1 ckpt</a></td>   
   </tr>
   <tr>
@@ -92,7 +92,7 @@ We provide the checkpoints of the compressed ResNet models on ImageNet. You can 
   <tr>
     <td>0.8G</td>
     <td>80%</td>
-    <td>74.4%</td>
+    <td>74.9%</td>
     <td><a href="https://drive.google.com/file/d/1w8yyZ6ZwyGC-WDpmPSQz0KxoamR9_UbF/view?usp=sharing">resnet50_0.8gflops_74.4top1 ckpt</a></td>   
   </tr> 
   <tr>
