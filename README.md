@@ -217,7 +217,7 @@ cd ./SEG
 
 ### Prepare the dataset
 
-* We use COCO2014, a widely used instance segmentation dataset.
+* We use COCO 2014, a widely used instance segmentation dataset.
 * We provide scripts to download and extract the COCO 2014 dataset.  Data will be downloaded to the `current working` directory on the host and extracted to a user-defined directory. To download, verify, and extract the COCO dataset, use the following scripts:
 ```Shell
 ./download_dataset.sh <data/dir>
