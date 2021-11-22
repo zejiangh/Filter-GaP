@@ -236,7 +236,46 @@ nvidia-docker run --rm -it -v <path to imagenet>:/data/imagenet -v <path to wher
 ```
 
 ### Checkpoints
-We provide the checkpoints of the compressed ResNet models on ImageNet. You can download and evaluate them directly.
+We provide the checkpoints of the compressed Mask R-CNN models on COCO2014. You can download and evaluate them directly.
+
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Backbone</th>
+    <th>FLOPs reduction</th>
+    <th>Task</th>
+    <th>AP</th>
+    <th>AP-50</th>
+    <th>AP-75</th>
+    <th>AP-S</th>
+    <th>AP-M</th>
+    <th>AP-L</th>
+    <th colspan="1">Download</th>
+  </tr>
+  <tr>
+    <td rowspan="2">Mask R-CNN</td>
+    <td rowspan="2">ResNet-50</td>
+    <td rowspan="2">63%</td>
+    <td>bbox</td>
+    <td>37.3</td>
+    <td>58.5</td>
+    <td>40.4</td>
+    <td>21.7</td>
+    <td>39.0</td>
+    <td>49.5</td>
+    <td><a href="https://drive.google.com/file/d/1Bow0Fqi8QhLY-ZspDMVCFKtqfdlQfO2q/view?usp=sharing">maskrcnn_37%flops_37.3apbox_34.5apmask ckpt</a></td>   
+  </tr>
+  <tr>
+    <td>segm</td>
+    <td>34.5</td>
+    <td>55.7</td>
+    <td>36.7</td>
+    <td>15.9</td>
+    <td>36.1</td>
+    <td>51.2</td>
+    <td><a href="https://drive.google.com/file/d/1Bow0Fqi8QhLY-ZspDMVCFKtqfdlQfO2q/view?usp=sharing">maskrcnn_37%flops_37.3apbox_34.5apmask ckpt</a></td> 
+  </tr> 
+</table>
 
 ### Evaluation
 * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation.
