@@ -222,7 +222,7 @@ cd ./SEG
 ```Shell
 ./download_dataset.sh <data/dir>
 ```
-By default, the data is organized into the following structure:
+* By default, the data is organized into the following structure:
 ```Shell
 <data/dir>
   annotations/
