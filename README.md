@@ -113,7 +113,6 @@ We provide the checkpoints of the compressed ResNet models on ImageNet. You can 
 <!-- * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation. -->
 Start inference
 ```Shell
-python ./main.py --data-backend pytorch --arch resnet50 --evaluate --pruned_model ./logs/resnet50_2g_0.774.pth.tar -b 128 /data/imagenet
 python ./main.py --data-backend pytorch --arch ${model name} --evaluate --epochs 1 -b 100 /data/imagenet --pretrained-weights /workspace/rn50/checkpoints/${checkpoint name}.pth.tar 
 ```
 ${model name} can be resnet18, resnet34, resnet50, resnet101. ${checkpoint name} can be any one of the checkpoint we provide in the table above.
