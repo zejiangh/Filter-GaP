@@ -153,7 +153,44 @@ nvidia-docker run --rm -it -v <path to imagenet>:/data/imagenet -v <path to wher
 ```
 
 ### Checkpoints
-We provide the checkpoints of the compressed ResNet models on ImageNet. You can download and evaluate them directly.
+We provide the checkpoints of the compressed SSD models on COCO2017. You can download and evaluate them directly.
+
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Backbone</th>
+    <th>FLOPs reduction</th>
+    <th>AP</th>
+    <th>AP-50</th>
+    <th>AP-75</th>
+    <th>AP-S</th>
+    <th>AP-M</th>
+    <th>AP-L</th>
+    <th colspan="1">Download</th>
+  </tr>
+  <tr>
+    <td rowspan="2">SSD</td>
+    <td rowspan="2">ResNet-50</td>
+    <td>50%</td>
+    <td>25.9</td>
+    <td>43.0</td>
+    <td>26.8</td>
+    <td>7.8</td>
+    <td>27.8</td>
+    <td>41.7</td>
+    <td><a href="https://drive.google.com/file/d/1oL9U3cYzi8F_ARGuGWz1RxzjyAeD1Hl8/view?usp=sharing">ssd_50%flops_25.9ap ckpt</a></td>   
+  </tr>
+  <tr>
+    <td>75%</td>
+    <td>24.3</td>
+    <td>41.0</td>
+    <td>24.9</td>
+    <td>7.1</td>
+    <td>25.6</td>
+    <td>40.1</td>
+    <td><a href="https://drive.google.com/file/d/1oL9U3cYzi8F_ARGuGWz1RxzjyAeD1Hl8/view?usp=sharing">ssd_25%flops_24.3ap ckpt</a></td>   
+  </tr> 
+</table>
 
 ### Evaluation
 * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation.
