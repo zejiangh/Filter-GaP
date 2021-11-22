@@ -217,27 +217,30 @@ cd ./SEG
 
 ### Prepare the dataset
 
-* We use ImageNet-1K, a widely used image classification dataset from the ILSVRC challenge. 
-* [Download the images](http://image-net.org/download-images).
-* Extract the training data
+* We use COCO2014, a widely used instance segmentation dataset.
+* We provide scripts to download and extract the COCO 2014 dataset.  Data will be downloaded to the `current working` directory on the host and extracted to a user-defined directory. To download, verify, and extract the COCO dataset, use the following scripts:
 ```Shell
-mkdir train && mv ILSVRC2012_img_train.tar train/ && cd train
-tar -xvf ILSVRC2012_img_train.tar && rm -f ILSVRC2012_img_train.tar
-find . -name "*.tar" | while read NAME ; do mkdir -p "${NAME%.tar}"; tar -xvf "${NAME}" -C "${NAME%.tar}"; rm -f "${NAME}"; done
-cd ..
+./download_dataset.sh <data/dir>
 ```
-
-* Extract the validation data and move the images to subfolders
+By default, the data is organized into the following structure:
 ```Shell
-mkdir val && mv ILSVRC2012_img_val.tar val/ && cd val && tar -xvf ILSVRC2012_img_val.tar
-wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/valprep.sh | bash
+<data/dir>
+  annotations/
+    instances_train2014.json
+    instances_val2014.json
+  train2014/
+    COCO_train2014_*.jpg
+  val2014/
+    COCO_val2014_*.jpg
 ```
 
 * Docker setup
 ```Shell
-docker build . -t nvidia_resnet50
-nvidia-docker run --rm -it -v <path to imagenet>:/data/imagenet -v <path to where CHEX folder is saved>/CHEX:/workspace/rn50 --ipc=host nvidia_rn50
+cd pytorch/
+bash scripts/docker/build.sh
+bash scripts/docker/interactive.sh <path/to/dataset/>
 ```
+The `interactive.sh` script requires that the location on the dataset is specified.
 
 ### Checkpoints
 We provide the checkpoints of the compressed Mask R-CNN models on COCO2014. You can download and evaluate them directly.
@@ -292,8 +295,8 @@ python ./main.py --data-backend pytorch --arch resnet50 --evaluate --pruned_mode
 python check_flops.py --checkpoint_path ./logs/resnet50_2g_0.774.pth.tar
 ```
 
-### Training
+<!-- ### Training
 Example of applying FilterExpo method to ResNet-50
 ```Shell
 python ./multiproc.py --nproc_per_node 8 ./main.py /data/imagenet --data-backend pytorch --raport-file raport.json -j8 -p 100 --lr 1.024 --optimizer-batch-size 1024 --warmup 8 --arch resnet50 -c fanin --label-smoothing 0.1 --lr-schedule cosine --mom 0.875 --wd 3.0517578125e-05 -b 128 --amp --static-loss-scale 128 --mixup 0. --grow_prune --delta_T 2 --T_max 0.72 --init_channel_ratio 0.2 --channel_sparsity 0.5 --sampling
-```
+``` -->
