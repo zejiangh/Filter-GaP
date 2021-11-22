@@ -178,7 +178,7 @@ We provide the checkpoints of the compressed SSD models on COCO2017. You can dow
     <td>7.8</td>
     <td>27.8</td>
     <td>41.7</td>
-    <td><a href="https://drive.google.com/file/d/1oL9U3cYzi8F_ARGuGWz1RxzjyAeD1Hl8/view?usp=sharing">ssd_50%flops_25.9ap ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1Bow0Fqi8QhLY-ZspDMVCFKtqfdlQfO2q/view?usp=sharing">ssd_50%flops_25.9ap ckpt</a></td>   
   </tr>
   <tr>
     <td>75%</td>
@@ -188,7 +188,7 @@ We provide the checkpoints of the compressed SSD models on COCO2017. You can dow
     <td>7.1</td>
     <td>25.6</td>
     <td>40.1</td>
-    <td><a href="https://drive.google.com/file/d/1oL9U3cYzi8F_ARGuGWz1RxzjyAeD1Hl8/view?usp=sharing">ssd_25%flops_24.3ap ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1DDmb_NiijMN9mOOzNPOlgxqCU9RO5OcB/view?usp=sharing">ssd_25%flops_24.3ap ckpt</a></td>   
   </tr> 
 </table>
 
