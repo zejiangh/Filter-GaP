@@ -203,11 +203,11 @@ ${checkpoint name} can be any of the checkpoints we provide in the above table f
 python check_flops.py --checkpoint_path ./logs/resnet50_2g_0.774.pth.tar
 ``` -->
 
-<!-- ### Training
-Example of applying FilterExpo method to ResNet-50
+### Training
+Example of applying CHEX to SSD
 ```Shell
-python ./multiproc.py --nproc_per_node 8 ./main.py /data/imagenet --data-backend pytorch --raport-file raport.json -j8 -p 100 --lr 1.024 --optimizer-batch-size 1024 --warmup 8 --arch resnet50 -c fanin --label-smoothing 0.1 --lr-schedule cosine --mom 0.875 --wd 3.0517578125e-05 -b 128 --amp --static-loss-scale 128 --mixup 0. --grow_prune --delta_T 2 --T_max 0.72 --init_channel_ratio 0.2 --channel_sparsity 0.5 --sampling
-``` -->
+python -m torch.distributed.launch --nproc_per_node=8 ./main.py --backbone resnet50 --warmup 300 --bs 64 --amp --data /coco --epoch 650 --multistep 430 540 --grow_prune --channel_sparsity 0.5 --init_channel_ratio 0.2 --delta_T 2 --T_max 470 --save ./logs
+```
 
 ## Instance Segmentation on COCO2014
 
@@ -285,18 +285,18 @@ We provide the checkpoints of the compressed Mask R-CNN models on COCO2014. You 
 </table>
 
 ### Evaluation
-* We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation.
+<!-- * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation. -->
 * Start inference
 ```Shell
-python ./main.py --data-backend pytorch --arch resnet50 --evaluate --pruned_model ./logs/resnet50_2g_0.774.pth.tar -b 128 /data/imagenet
+bash scripts/eval.sh
 ```
-* FLOPs checking
+<!-- * FLOPs checking
 ```Shell
 python check_flops.py --checkpoint_path ./logs/resnet50_2g_0.774.pth.tar
-```
-
-<!-- ### Training
-Example of applying FilterExpo method to ResNet-50
-```Shell
-python ./multiproc.py --nproc_per_node 8 ./main.py /data/imagenet --data-backend pytorch --raport-file raport.json -j8 -p 100 --lr 1.024 --optimizer-batch-size 1024 --warmup 8 --arch resnet50 -c fanin --label-smoothing 0.1 --lr-schedule cosine --mom 0.875 --wd 3.0517578125e-05 -b 128 --amp --static-loss-scale 128 --mixup 0. --grow_prune --delta_T 2 --T_max 0.72 --init_channel_ratio 0.2 --channel_sparsity 0.5 --sampling
 ``` -->
+
+### Training
+Example of applying CHEX to Mask R-CNN
+```Shell
+bash scripts/train.sh
+```
