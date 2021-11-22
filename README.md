@@ -9,7 +9,7 @@ Channel pruning has been broadly recognized as an effective technique to reduce 
   <img width="100%" src="figs/overview.png">
 </div>
 
-## Dependency
+<!-- ## Dependency -->
 
 <!-- This repository contains Dockerfile which extends the PyTorch NGC container and encapsulates some dependencies. In addition, ensure you have the following components: -->
 
@@ -41,7 +41,8 @@ wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/
 * Docker setup
 ```Shell
 docker build . -t nvidia_resnet50
-nvidia-docker run --rm -it -v <path to imagenet>:/data/imagenet --ipc=host nvidia_resnet50
+nvidia-docker run --rm -it -v <path to imagenet>:/data/imagenet -v <path to where CHEX folder is saved>/CHEX:/workspace/rn50 --ipc=host nvidia_rn50
+
 ```
 
 ### Checkpoints
