@@ -61,52 +61,52 @@ We provide the checkpoints of the compressed ResNet models on ImageNet. You can 
     <td>1.03G</td>
     <td>43%</td>
     <td>69.4%</td>
-    <td><a href="">resnet18_1gflops_69.4top1 ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1FAXXPcXeqFN7ngyIM06590PT4VgHgrUe/view?usp=sharing">resnet18_1gflops_69.4top1 ckpt</a></td>   
   </tr>
   <tr>
     <td>ResNet-34</td>
     <td>2G</td>
     <td>46%</td>
     <td>73.5%</td>
-    <td><a href="">resnet34_2gflops_73.5top1 ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1Np6mglrjrfIyuH6FSCMwFgM6w-0E4XfP/view?usp=sharing">resnet34_2gflops_73.5top1 ckpt</a></td>   
   </tr>
   <tr>
     <td rowspan="4">ResNet-50</td>
     <td>3G</td>
     <td>27%</td>
     <td>77.9%</td>
-    <td><a href="">resnet50_3gflops_77.9top1 ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1oL9U3cYzi8F_ARGuGWz1RxzjyAeD1Hl8/view?usp=sharing">resnet50_3gflops_77.9top1 ckpt</a></td>   
   </tr>
   <tr>
     <td>2G</td>
     <td>50%</td>
     <td>77.4%</td>
-    <td><a href="">resnet50_2gflops_77.4top1 ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1oL9U3cYzi8F_ARGuGWz1RxzjyAeD1Hl8/view?usp=sharing">resnet50_2gflops_77.4top1 ckpt</a></td>   
   </tr> 
   <tr>
     <td>1G</td>
     <td>75%</td>
     <td>76%</td>
-    <td><a href="">resnet50_1gflops_76top1 ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1DJJ0ifrY2nf79IZCN6QwLYh3K9WeOonB/view?usp=sharing">resnet50_1gflops_76top1 ckpt</a></td>   
   </tr> 
   <tr>
     <td>0.8G</td>
     <td>80%</td>
     <td>74.4%</td>
-    <td><a href="">resnet50_0.8gflops_74.4top1 ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1w8yyZ6ZwyGC-WDpmPSQz0KxoamR9_UbF/view?usp=sharing">resnet50_0.8gflops_74.4top1 ckpt</a></td>   
   </tr> 
   <tr>
     <td rowspan="2">ResNet-101</td>
     <td>3.4G</td>
     <td>55%</td>
     <td>78.8%</td>
-    <td><a href="">resnet101_3.4gflops_78.8top1 ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1u7H-UwF_KR-0MTjuDD7FQa8G0R5Vjfk6/view?usp=sharing">resnet101_3.4gflops_78.8top1 ckpt</a></td>   
   </tr> 
   <tr>
     <td>1.9G</td>
     <td>75%</td>
     <td>77.6%</td>
-    <td><a href="">resnet101_1.9gflops_77.6top1 ckpt</a></td>   
+    <td><a href="https://drive.google.com/file/d/1tLPigX1Ln84qg6un0FqR_PlgmJexUHUB/view?usp=sharing">resnet101_1.9gflops_77.6top1 ckpt</a></td>   
   </tr> 
 </table>
 
