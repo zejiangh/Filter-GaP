@@ -132,27 +132,17 @@ python ./multiproc.py --nproc_per_node 8 ./main.py /data/imagenet --data-backend
 
 ### Prepare the dataset
 
-* We use ImageNet-1K, a widely used image classification dataset from the ILSVRC challenge. 
-* [Download the images](http://image-net.org/download-images).
-* Extract the training data
-```Shell
-mkdir train && mv ILSVRC2012_img_train.tar train/ && cd train
-tar -xvf ILSVRC2012_img_train.tar && rm -f ILSVRC2012_img_train.tar
-find . -name "*.tar" | while read NAME ; do mkdir -p "${NAME%.tar}"; tar -xvf "${NAME}" -C "${NAME%.tar}"; rm -f "${NAME}"; done
-cd ..
-```
-
-* Extract the validation data and move the images to subfolders
-```Shell
-mkdir val && mv ILSVRC2012_img_val.tar val/ && cd val && tar -xvf ILSVRC2012_img_val.tar
-wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/valprep.sh | bash
-```
+* We use [COCO 2017](http://cocodataset.org/#download) dataset, a widely used object detection dataset.
+* Extract the COCO 2017 dataset with `download_dataset.sh $COCO_DIR`. Data will be downloaded to the `$COCO_DIR` directory.
 
 * Docker setup
 ```Shell
-docker build . -t nvidia_resnet50
-nvidia-docker run --rm -it -v <path to imagenet>:/data/imagenet -v <path to where CHEX folder is saved>/CHEX:/workspace/rn50 --ipc=host nvidia_rn50
+docker build . -t nvidia_ssd
+docker run --rm -it --gpus=all --ipc=host -v $COCO_DIR:/coco nvidia_ssd
+nvidia-docker run --rm -it --ulimit memlock=-1 --ulimit stack=67108864 -v $COCO_DIR:/coco -v <path to where CHEX folder is saved>/CHEX:/workspace --ipc=host nvidia_ssd
 ```
+
+**Note**: the default mount point in the container is `/coco`.
 
 ### Checkpoints
 We provide the checkpoints of the compressed SSD models on COCO2017. You can download and evaluate them directly.
@@ -195,15 +185,16 @@ We provide the checkpoints of the compressed SSD models on COCO2017. You can dow
 </table>
 
 ### Evaluation
-* We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation.
+<!-- * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation. -->
 * Start inference
 ```Shell
-python ./main.py --data-backend pytorch --arch resnet50 --evaluate --pruned_model ./logs/resnet50_2g_0.774.pth.tar -b 128 /data/imagenet
+python ./main.py --backbone resnet50 --mode evaluation --checkpoint /workspace/checkpoints/${checkpoint name}.pth.tar --data /coco
 ```
-* FLOPs checking
+${checkpoint name} can be any of the checkpoints we provide in the above table for SSD.
+<!-- * FLOPs checking
 ```Shell
 python check_flops.py --checkpoint_path ./logs/resnet50_2g_0.774.pth.tar
-```
+``` -->
 
 ### Training
 Example of applying FilterExpo method to ResNet-50
