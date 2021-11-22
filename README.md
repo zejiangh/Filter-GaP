@@ -9,15 +9,6 @@ Channel pruning has been broadly recognized as an effective technique to reduce 
   <img width="100%" src="figs/overview.png">
 </div>
 
-<!-- ## Dependency -->
-
-<!-- This repository contains Dockerfile which extends the PyTorch NGC container and encapsulates some dependencies. In addition, ensure you have the following components: -->
-
-<!-- * [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker) -->
-<!-- * [PyTorch 20.12-py3 NGC container](https://ngc.nvidia.com/registry/nvidia-pytorch) or newer -->
-<!-- * Supported GPUs: -->
-<!--     * [NVIDIA Volta architecture](https://www.nvidia.com/en-us/data-center/volta-gpu-architecture/) -->
-
 ## Image Classification on ImageNet
 
 ```Shell
@@ -114,17 +105,11 @@ We provide the checkpoints of the compressed ResNet models on ImageNet. You can 
 </table>
 
 ### Evaluation
-<!-- * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation. -->
 Start inference
 ```Shell
 python ./main.py --data-backend pytorch --arch ${model name} --evaluate --epochs 1 -b 100 /data/imagenet --pretrained-weights /workspace/rn50/checkpoints/${checkpoint name}.pth.tar 
 ```
 ${model name} can be resnet18, resnet34, resnet50, resnet101. ${checkpoint name} can be any one of the checkpoints we provide in the table above.
-
-<!-- * FLOPs checking
-```Shell
-python check_flops.py --checkpoint_path ./logs/resnet50_2g_0.774.pth.tar
-``` -->
 
 ### Training
 Example of applying CHEX to ResNet-50
@@ -192,16 +177,11 @@ We provide the checkpoints of the compressed SSD models on COCO2017. You can dow
 </table>
 
 ### Evaluation
-<!-- * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation. -->
 * Start inference
 ```Shell
 python ./main.py --backbone resnet50 --mode evaluation --checkpoint /workspace/checkpoints/${checkpoint name}.pth.tar --data /coco
 ```
 ${checkpoint name} can be any of the checkpoints we provide in the above table for SSD.
-<!-- * FLOPs checking
-```Shell
-python check_flops.py --checkpoint_path ./logs/resnet50_2g_0.774.pth.tar
-``` -->
 
 ### Training
 Example of applying CHEX to SSD
@@ -285,17 +265,12 @@ We provide the checkpoints of the compressed Mask R-CNN models on COCO2014. You 
 </table>
 
 ### Evaluation
-<!-- * We released the pruned model at ```./RN50/logs/resnet50_2g_0.774.pth.tar``` (ResNet50 with 2GFLOPs and 77.4% Top-1) for direct evaluation. -->
 * Start inference
 
 Copy checkpoint 'maskrcnn_37%flops_37.3apbox_34.5apmask.pth.tar' to '/workspace/object_detection/results/'
 ```Shell
 bash scripts/eval.sh
 ```
-<!-- * FLOPs checking
-```Shell
-python check_flops.py --checkpoint_path ./logs/resnet50_2g_0.774.pth.tar
-``` -->
 
 ### Training
 Example of applying CHEX to Mask R-CNN
