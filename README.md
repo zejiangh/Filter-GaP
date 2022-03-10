@@ -279,7 +279,7 @@ bash scripts/train.sh
 ```
 
 ## Acknowledgment
-
-## License
+This repository is built using [DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples).
 
 ## Citation
+If you find this repository helpful, please consider citing:
