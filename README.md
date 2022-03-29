@@ -1,4 +1,4 @@
-# CHEX: Channel Exploration for CNN Model Compression
+# CHEX: Channel Exploration for CNN Model Compression (CVPR 2022)
 
 This repository is the official implementation of the paper "CHEX: CHannel EXploration for CNN Model Compression".
 
