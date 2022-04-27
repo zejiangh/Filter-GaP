@@ -283,7 +283,7 @@ This work was supported by Alibaba Group through Alibaba Research Intern Program
 This repository is built using [DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples).
 
 ## Citation
-If you find this repository helpful, please consider citing:
+If you find this repository helpful, please consider citing CHEX:
 ```Shell
 @article{DBLP:journals/corr/abs-2203-15794,
   author    = {Zejiang Hou and
