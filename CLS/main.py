@@ -178,7 +178,7 @@ def add_parser_arguments(parser):
         help="label smoothing",
     )
     parser.add_argument(
-        "--mixup", default=0.0, type=float, metavar="ALPHA", help="mixup alpha"
+        "--mixup", default=0.2, type=float, metavar="ALPHA", help="mixup alpha"
     )
 
     parser.add_argument(
