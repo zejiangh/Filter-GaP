@@ -109,8 +109,7 @@ Start inference
 ```Shell
 python ./main.py --data-backend pytorch --arch ${model name} --evaluate --epochs 1 -b 100 /data/imagenet --pretrained-weights /workspace/rn50/checkpoints/${checkpoint name}.pth.tar 
 ```
-
-${model name} can be resnet18, resnet34, resnet50, resnet101. ${checkpoint name} can be any one of the checkpoints we provide in the table above.
+${model name} can be resnet18, resnet34, resnet50, and resnet101. ${checkpoint name} can be any one of the checkpoints we provide in the table above.
 
 ### Training
 Example of applying CHEX to ResNet-50
