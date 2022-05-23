@@ -1,9 +1,9 @@
-# CHEX: Channel Exploration for CNN Model Compression (CVPR 2022)
+# CHEX: CHannel EXploration for CNN Model Compression
 
-This repository contains the implementation of the paper "[CHEX: CHannel EXploration for CNN Model Compression](https://arxiv.org/abs/2203.15794)".
+This repository contains the implementation of the paper [CHEX: CHannel EXploration for CNN Model Compression](https://arxiv.org/abs/2203.15794) (CVPR 2022).
 
 ## Highlights
-Channel pruning has been broadly recognized as an effective technique to reduce the computation and memory cost of deep convolutional neural networks. However, conventional pruning methods have limitations in that: they are restricted to pruning process only, and they require a fully pre-trained large model. Such limitations may lead to sub-optimal model quality as well as excessive memory and training cost. In this paper, we propose a novel Channel Exploration methodology, dubbed as CHEX, to rectify these problems. As opposed to pruning-only strategy, we propose to repeatedly prune and regrow the channels throughout the training process, which reduces the risk of pruning important channels prematurely. More exactly: From intra-layer’s aspect, we tackle the channel pruning problem via a wellknown column subset selection (CSS) formulation. From inter-layer’s aspect, our regrowing stages open a path for dynamically re-allocating the number of channels across all the layers under a global channel sparsity constraint. In addition, all the exploration process is done in a single training from scratch without the need of a pre-trained large model. Experimental results demonstrate that CHEX can effectively reduce the FLOPs of diverse CNN architectures on a variety of computer vision tasks, including image classification, object detection, instance segmentation, and 3D vision. For example, our compressed ResNet-50 model on ImageNet dataset achieves 76% top-1 accuracy with only 25% FLOPs of the original ResNet-50 model, outperforming previous state-of-the-art channel pruning methods.
+Channel pruning has been broadly recognized as an effective technique to reduce the computation and memory cost of deep convolutional neural networks. However, conventional pruning methods have limitations in that: they are restricted to pruning process only, and they require a fully pre-trained large model. Such limitations may lead to sub-optimal model quality as well as excessive memory and training cost. In this paper, we propose a novel Channel Exploration methodology, dubbed as CHEX, to rectify these problems. As opposed to pruning-only strategy, we propose to repeatedly prune and regrow the channels throughout the training process, which reduces the risk of pruning important channels prematurely. More exactly: From intra-layer’s aspect, we tackle the channel pruning problem via a well-known column subset selection (CSS) formulation. From inter-layer’s aspect, our regrowing stages open a path for dynamically re-allocating the number of channels across all the layers under a global channel sparsity constraint. In addition, all the exploration process is done in a single training from scratch without the need of a pre-trained large model. Experimental results demonstrate that CHEX can effectively reduce the FLOPs of diverse CNN architectures on a variety of computer vision tasks, including image classification, object detection, instance segmentation, and 3D vision. For example, our compressed ResNet-50 model on ImageNet dataset achieves 76% top-1 accuracy with only 25% FLOPs of the original ResNet-50 model, outperforming previous state-of-the-art channel pruning methods.
 
 <div align="center">
   <img width="100%" src="figs/overview.png">
@@ -19,7 +19,7 @@ cd ./CLS
 
 * We use ImageNet-1K, a widely used image classification dataset from the ILSVRC challenge. 
 * [Download the images](http://image-net.org/download-images).
-* Extract the training data
+* Extract the training data:
 ```Shell
 mkdir train && mv ILSVRC2012_img_train.tar train/ && cd train
 tar -xvf ILSVRC2012_img_train.tar && rm -f ILSVRC2012_img_train.tar
@@ -27,13 +27,13 @@ find . -name "*.tar" | while read NAME ; do mkdir -p "${NAME%.tar}"; tar -xvf "$
 cd ..
 ```
 
-* Extract the validation data and move the images to subfolders
+* Extract the validation data and move the images to subfolders:
 ```Shell
 mkdir val && mv ILSVRC2012_img_val.tar val/ && cd val && tar -xvf ILSVRC2012_img_val.tar
 wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/valprep.sh | bash
 ```
 
-* Docker setup
+* Docker setup:
 ```Shell
 docker build . -t nvidia_resnet50
 nvidia-docker run --rm -it -v <path to imagenet>:/data/imagenet -v <path to where CHEX folder is saved>/CHEX:/workspace/rn50 --ipc=host nvidia_rn50
@@ -105,14 +105,14 @@ We provide the checkpoints of the compressed ResNet models on ImageNet. You can 
 </table>
 
 ### Evaluation
-* Start inference
+Start inference:
 ```Shell
 python ./main.py --data-backend pytorch --arch ${model name} --evaluate --epochs 1 -b 100 /data/imagenet --pretrained-weights /workspace/rn50/checkpoints/${checkpoint name}.pth.tar 
 ```
-.${model name} can be resnet18, resnet34, resnet50, and resnet101. ${checkpoint name} can be any one of the checkpoints we provide in the table above.
+`${model name}` can be ``resnet18``, ``resnet34``, ``resnet50``, and ``resnet101``. `${checkpoint name}` can be any one of the checkpoints we provide in the table above.
 
 ### Training
-Example of applying CHEX to ResNet-50
+Example of applying CHEX to ResNet-50:
 ```Shell
 python ./multiproc.py --nproc_per_node 8 ./main.py /data/imagenet --data-backend pytorch --raport-file raport.json -j8 -p 100 --lr 1.024 --optimizer-batch-size 1024 --warmup 8 --arch resnet50 -c fanin --label-smoothing 0.1 --lr-schedule cosine --mom 0.875 --wd 3.0517578125e-05 -b 128 --amp --static-loss-scale 128 --epochs 250 --mixup 0.2 --grow_prune --delta_T 2 --T_max 180 --init_channel_ratio 0.3 --channel_sparsity 0.7
 ```
@@ -128,13 +128,13 @@ cd ./DET
 * We use [COCO 2017](http://cocodataset.org/#download) dataset, a widely used object detection dataset.
 * Extract the COCO 2017 dataset with `download_dataset.sh $COCO_DIR`. Data will be downloaded to the `$COCO_DIR` directory.
 
-* Docker setup
+* Docker setup:
 ```Shell
 docker build . -t nvidia_ssd
 nvidia-docker run --rm -it --ulimit memlock=-1 --ulimit stack=67108864 -v $COCO_DIR:/coco -v <path to where CHEX folder is saved>/CHEX:/workspace --ipc=host nvidia_ssd
 ```
 
-**Note**: the default mount point in the container is `/coco`.
+*Note*: the default mount point in the container is `/coco`.
 
 ### Checkpoints
 We provide the checkpoints of the compressed SSD models on COCO2017. You can download and evaluate them directly.
@@ -177,14 +177,14 @@ We provide the checkpoints of the compressed SSD models on COCO2017. You can dow
 </table>
 
 ### Evaluation
-* Start inference
+Start inference:
 ```Shell
 python ./main.py --backbone resnet50 --mode evaluation --checkpoint /workspace/checkpoints/${checkpoint name}.pth.tar --data /coco
 ```
-${checkpoint name} can be any of the checkpoints we provide in the above table for SSD.
+`${checkpoint name}` can be any of the checkpoints we provide in the above table for SSD.
 
 ### Training
-Example of applying CHEX to SSD
+Example of applying CHEX to SSD:
 ```Shell
 python -m torch.distributed.launch --nproc_per_node=8 ./main.py --backbone resnet50 --warmup 300 --bs 64 --amp --data /coco --epoch 650 --multistep 430 540 --grow_prune --channel_sparsity 0.5 --init_channel_ratio 0.2 --delta_T 2 --T_max 470 --save ./logs
 ```
@@ -198,7 +198,7 @@ cd ./SEG
 ### Prepare the dataset
 
 * We use COCO 2014, a widely used instance segmentation dataset.
-* We provide scripts to download and extract the COCO 2014 dataset.  Data will be downloaded to the `current working` directory on the host and extracted to a user-defined directory. To download, verify, and extract the COCO dataset, use the following scripts:
+* We provide scripts to download and extract the COCO 2014 dataset.  Data will be downloaded to the current working directory on the host and extracted to a user-defined directory. To download, verify, and extract the COCO dataset, use the following scripts:
 ```Shell
 ./download_dataset.sh <data/dir>
 ```
@@ -214,7 +214,7 @@ cd ./SEG
     COCO_val2014_*.jpg
 ```
 
-* Docker setup
+* Docker setup:
 ```Shell
 cd pytorch/
 bash scripts/docker/build.sh
@@ -265,15 +265,15 @@ We provide the checkpoints of the compressed Mask R-CNN models on COCO2014. You 
 </table>
 
 ### Evaluation
-* Start inference
+Start inference:
 
-Copy checkpoint 'maskrcnn_37%flops_37.3apbox_34.5apmask.pth.tar' to '/workspace/object_detection/results/'
+Copy checkpoint `maskrcnn_37%flops_37.3apbox_34.5apmask.pth.tar` to `/workspace/object_detection/results/` and run:
 ```Shell
 bash scripts/eval.sh
 ```
 
 ### Training
-Example of applying CHEX to Mask R-CNN
+Example of applying CHEX to Mask R-CNN:
 ```Shell
 bash scripts/train.sh
 ```
