@@ -285,30 +285,11 @@ This repository is built using [DeepLearningExamples](https://github.com/NVIDIA/
 ## Citation
 If you find this repository helpful, please consider citing CHEX:
 ```Shell
-@article{DBLP:journals/corr/abs-2203-15794,
-  author    = {Zejiang Hou and
-               Minghai Qin and
-               Fei Sun and
-               Xiaolong Ma and
-               Kun Yuan and
-               Yi Xu and
-               Yen{-}Kuang Chen and
-               Rong Jin and
-               Yuan Xie and
-               Sun{-}Yuan Kung},
-  title     = {{CHEX:} CHannel EXploration for {CNN} Model Compression},
-  journal   = {CoRR},
-  volume    = {abs/2203.15794},
-  year      = {2022},
-  url       = {https://doi.org/10.48550/arXiv.2203.15794},
-  doi       = {10.48550/arXiv.2203.15794},
-  eprinttype = {arXiv},
-  eprint    = {2203.15794},
-  timestamp = {Mon, 04 Apr 2022 18:01:21 +0200},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2203-15794.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
+@article{hou2022chex,
+  title={CHEX: CHannel EXploration for CNN Model Compression},
+  author={Hou, Zejiang and Qin, Minghai and Sun, Fei and Ma, Xiaolong and Yuan, Kun and Xu, Yi and Chen, Yen-Kuang and Jin, Rong and Xie, Yuan and Kung, Sun-Yuan},
+  journal={arXiv preprint arXiv:2203.15794},
+  year={2022}
 }
 ```
-
-## License
 
