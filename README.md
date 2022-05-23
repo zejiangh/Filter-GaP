@@ -265,9 +265,7 @@ We provide the checkpoints of the compressed Mask R-CNN models on COCO2014. You 
 </table>
 
 ### Evaluation
-Start inference:
-
-Copy checkpoint `maskrcnn_37%flops_37.3apbox_34.5apmask.pth.tar` to `/workspace/object_detection/results/` and run:
+Copy checkpoint `maskrcnn_37%flops_37.3apbox_34.5apmask.pth.tar` to `/workspace/object_detection/results/` and start inference by running:
 ```Shell
 bash scripts/eval.sh
 ```
