@@ -109,7 +109,7 @@ We provide the checkpoints of the compressed ResNet models on ImageNet. You can 
 ```Shell
 python ./main.py --data-backend pytorch --arch ${model name} --evaluate --epochs 1 -b 100 /data/imagenet --pretrained-weights /workspace/rn50/checkpoints/${checkpoint name}.pth.tar 
 ```
-${model name} can be resnet18, resnet34, resnet50, and resnet101. ${checkpoint name} can be any one of the checkpoints we provide in the table above.
+.${model name} can be resnet18, resnet34, resnet50, and resnet101. ${checkpoint name} can be any one of the checkpoints we provide in the table above.
 
 ### Training
 Example of applying CHEX to ResNet-50
@@ -220,7 +220,7 @@ cd pytorch/
 bash scripts/docker/build.sh
 bash scripts/docker/interactive.sh <path/to/dataset/>
 ```
-The `interactive.sh` script requires that the location on the dataset is specified.
+The `interactive.sh` script requires that the location of the dataset is specified.
 
 ### Checkpoints
 We provide the checkpoints of the compressed Mask R-CNN models on COCO2014. You can download and evaluate them directly.
