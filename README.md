@@ -105,7 +105,7 @@ We provide the checkpoints of the compressed ResNet models on ImageNet. You can 
 </table>
 
 ### Evaluation
-Start inference
+* Start inference
 ```Shell
 python ./main.py --data-backend pytorch --arch ${model name} --evaluate --epochs 1 -b 100 /data/imagenet --pretrained-weights /workspace/rn50/checkpoints/${checkpoint name}.pth.tar 
 ```
